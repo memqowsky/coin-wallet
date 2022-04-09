@@ -1,0 +1,51 @@
+html, body {
+	height: 100%;
+	margin: 0px;
+}
+
+body{
+	font-family: "Poppins", sans-serif;
+}
+
+.container {
+	height: 100%;
+	background: #3A9CFF;
+}
+
+.main {
+	height: 90%;
+	width: 80%;
+	background: #1a3652;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.cHolder{
+	height: 5rem;
+	width: 60%;
+	background: white;
+	position: absolute;
+	display: flex;
+	justify-content: space-between;
+	top: 10%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	box-sizing: border-box;
+	padding: 0 3rem;
+}
+.Holder{
+	margin:auto;
+	display: flex;
+	justify-content: space-between;
+
+}
+
+img {
+	width: 2rem;
+	height: 2rem;
+	margin:auto;
+	padding-right: 1rem;
+	/* margin: 4% auto; */
+}
