@@ -4,7 +4,7 @@ const ethPrice = document.getElementById("eth_price");
 const ethChange = document.getElementById("eth_zmiana");
 const ethMarketCup = document.getElementById("eth_kapitalizacja");
 
-getapi(ETH_URL);
+getapi(ETH_URL);;;;
 
 async function getapi(ETH_URL) {
     
