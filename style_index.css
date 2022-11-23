@@ -3,49 +3,146 @@ html, body {
 	margin: 0px;
 }
 
+
 body{
 	font-family: "Poppins", sans-serif;
+	font-size: 11pt;
+	color: white;
 }
 
+
+/* HEADER */
+
+.header {
+	background-color: transparent;
+	height: 6rem;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.leftMenu {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	padding-left: 3%;
+	width: 35rem;
+}
+
+.logoHolder {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-right: 2rem;
+
+}
+
+.logo {
+	width: 10rem;
+}
+
+.rightMenu {
+	display: flex;
+	justify-content: flex-end;
+	flex-direction: row;
+	padding-right: 3%;
+	width: 14rem;
+}
+
+.headerText{
+	padding-right: 1rem;
+}
+
+.user {
+	width: 1.75rem;
+}
+
+/* HEADER */
+
 .container {
-	height: 100%;
-	background: #3A9CFF;
+	height: 100vw;
+	width: 100%;
+	background: rgb(0,17,55);
+	background: linear-gradient(146deg, rgba(0,17,55,1) 13%, rgba(0,7,27,1) 100%);
+	display: flex;
+  	justify-content: flex-start;
+  	align-items: center;
+	flex-direction: column;
+	position: absolute;
 }
 
 .main {
-	height: 90%;
+	height: 80%;
+	width: 80vw;
+	background: transparent;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.bestCoins{
+	width: 100%;
+	height: 25rem;
+	background-color: transparent;
+}
+
+.middler {
+	height: 100%;
 	width: 80%;
-	background: #1a3652;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	background: transparent;
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
 }
 
 .cHolder{
-	height: 5rem;
-	width: 60%;
-	background: white;
-	position: absolute;
+	height: 4.5rem;
+	width: 100%;
+	background: rgb(255,255,255);
+	background: linear-gradient(162deg, rgba(255,255,255,0.039653361344537785) 0%, rgba(255,255,255,0.09287464985994398) 100%);
 	display: flex;
 	justify-content: space-between;
-	top: 10%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	box-sizing: border-box;
-	padding: 0 3rem;
+	flex-direction: flex-start;
 }
+
 .Holder{
-	margin:auto;
+	width: 20%;
 	display: flex;
-	justify-content: space-between;
-
+  	justify-content: center;
+  	align-items: center;
 }
 
-img {
-	width: 2rem;
+.nameHolder{
+	padding-left: 5%;
+	width: 20%;
+	display: flex;
+  	justify-content: flex-start;
+  	align-items: center;
+	padding: 1rem;
+}
+
+.ICO {
 	height: 2rem;
-	margin:auto;
-	padding-right: 1rem;
-	/* margin: 4% auto; */
+	width: 2rem;
+}
+
+.cryptoName{
+	padding-left: 5%;
+}
+
+.tokenName {
+	padding-left: 7%;
+	font-weight: bolder;
+}
+
+.namesHeader{
+	height: 2.5rem;
+	font-size: 9pt;
+	width: 100%;
+	background: rgb(255,255,255);
+	background: linear-gradient(162deg, rgba(255,255,255,0.09287464985994398) 0%, rgba(255,255,255,0.10653361344537785) 100%);
+	display: flex;
+	justify-content: space-between;
+	flex-direction: flex-start;
 }

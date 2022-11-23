@@ -1,10 +1,12 @@
 const ETH_URL = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=ETH&tsyms=USD";
 
 const ethPrice = document.getElementById("eth_price");
-const ethChange = document.getElementById("eth_zmiana");
-const ethMarketCup = document.getElementById("eth_kapitalizacja");
+const ethChange = document.getElementById("eth_change");
+const ethMarketCup = document.getElementById("eth_marketcap");
 
-getapi(ETH_URL);;;;
+getapi(ETH_URL);
+
+// function string
 
 async function getapi(ETH_URL) {
     
