@@ -1,0 +1,64 @@
+.handCoursor:hover {
+	cursor: pointer;
+}
+
+html, body {
+	height: 100%;
+	margin: 0px;
+}
+
+
+body{
+	font-family: "Poppins", sans-serif;
+	font-size: 11pt;
+	color: white;
+}
+
+
+/* HEADER */
+
+.header {
+	background-color: transparent;
+	height: 6rem;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.leftMenu {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	padding-left: 3%;
+	width: 35rem;
+}
+
+.logoHolder {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-right: 2rem;
+}
+
+.logo {
+	width: 10rem;
+}
+
+.rightMenu {
+	display: flex;
+	justify-content: flex-end;
+	flex-direction: row;
+	padding-right: 3%;
+	width: 14rem;
+}
+
+.headerText{
+	padding-right: 1rem;
+}
+
+.user {
+	width: 1.75rem;
+}
+
+/* HEADER END */

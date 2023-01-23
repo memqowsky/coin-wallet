@@ -1,0 +1,110 @@
+/* BEST COINS START */
+
+.bestCoins{
+	width: 80vw;
+	height: 25rem;
+	background-color: transparent;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#bestCoinsMiddler{
+	/* background: rgb(255,255,255);
+	background: linear-gradient(162deg, rgba(255,255,255,0.039653361344537785) 0%, rgba(255,255,255,0.09287464985994398) 100%); */
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-direction: row;
+}
+
+.bestCoin{
+	height: 90%;
+	width: 23.7%;
+	background: rgb(255,255,255);
+	background: linear-gradient(162deg, rgba(255,255,255,0.039653361344537785) 0%, rgba(255,255,255,0.09287464985994398) 100%);
+}
+
+/* BEST COINS END*/
+
+.container {
+	height: 100vw;
+	width: 100%;
+	background: rgb(0,17,55);
+	background: linear-gradient(146deg, rgba(0,17,55,1) 13%, rgba(0,7,27,1) 100%);
+	display: flex;
+  	justify-content: flex-start;
+  	align-items: center;
+	flex-direction: column;
+	position: absolute;
+}
+
+.main {
+	height: 80%;
+	width: 80vw;
+	background: transparent;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.middler {
+	height: 100%;
+	width: 80%;
+	background: transparent;
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+}
+
+.cHolder{
+	height: 4.5rem;
+	width: 100%;
+	background: rgb(255,255,255);
+	background: linear-gradient(162deg, rgba(255,255,255,0.039653361344537785) 0%, rgba(255,255,255,0.09287464985994398) 100%);
+	display: flex;
+	justify-content: space-between;
+	flex-direction: flex-start;
+}
+
+.Holder{
+	width: 20%;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
+
+.nameHolder{
+	padding-left: 5%;
+	width: 20%;
+	display: flex;
+  	justify-content: flex-start;
+  	align-items: center;
+	padding: 1rem;
+}
+
+.ICO {
+	height: 1.8rem;
+	width: 1.8rem;
+}
+
+.cryptoName{
+	padding-left: 5%;
+}
+
+.tokenName {
+	padding-left: 7%;
+	font-weight: bolder;
+}
+
+.namesHeader{
+	height: 2.5rem;
+	font-size: 9pt;
+	width: 100%;
+	background: rgb(255,255,255);
+	background: linear-gradient(162deg, rgba(255,255,255,0.09287464985994398) 0%, rgba(255,255,255,0.10653361344537785) 100%);
+	display: flex;
+	justify-content: space-between;
+	flex-direction: flex-start;
+}
+

@@ -1,0 +1,137 @@
+<!DOCTYPE html >
+
+<html>
+<head>
+
+<title>Coinwallet</title>
+
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta http-equiv="content-language" content="pl">
+  <meta name ="description" content="Wszystkie twoje monety w jednym miejscu">
+  <meta name="author" content="p.m">
+
+  <link href="style_dashboard.css" rel="stylesheet" type="text/css">
+  <link href="common.css" rel="stylesheet" type="text/css">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+
+<div class="container">
+
+  <div class="header">
+
+    <div class="leftMenu">
+      <div class="logoHolder">
+        <img class="logo handCoursor" src="img/cryptotracker-02.svg" onclick="location.href='index.html';"></img>
+      </div>
+      <p class="headerText handCoursor" onclick="location.href='markets.html';">Markets</a>
+      <p class="headerText handCoursor" onclick="location.href='dashboard.html';">Dashboard</p>
+      <p class="headerText handCoursor" onclick="location.href='wallets.html';">Wallets</p>
+      <p class="headerText handCoursor">Portfolio</p>
+    </div>
+    <div class="rightMenu">
+      <p class="headerText">sample.user@email.com</p>
+      <img class="user" src="img/user.svg"></img>
+    </div>
+  </div>
+
+  
+  <div class="main">
+
+  <div class="middler">
+    <div class="left">
+
+      <h1>Your Portfolio</h1>
+      <h3>Estimated Balance</h3>
+      <h3>Your coins</h3>
+
+      <div class ="namesHeader">
+        <div class = "nameHolder">
+          <p class = "nameHolder_name">Name</p>
+        </div>
+        <div class = "Holder">
+          <p id="price">Price</p>
+        </div>
+        <div class = "Holder">
+          <p id="nameHolder_change">Change</p>
+        </div>
+        <div class = "Holder">
+        <p id="nameHolder_marketcap">Market Cap</p>
+        </div>
+      </div>
+
+      <div class ="cHolder" id="btcHolder">
+        <div class = "nameHolder">
+          <img class="ICO" src="img/btc.png"></img>
+          <p class = "tokenName" id="btc">BTC</p>
+          <p class = "cryptoName" id="bitcoin">Bitcoin</p>
+        </div>
+        <div class = "Holder">
+          <p id="btc_price">$0.00</p>
+        </div>
+        <div class = "Holder">
+          <p id="btc_change">+0.00%</p>
+        </div>
+        <div class = "Holder">
+        <p id="btc_marketcap">$0.00</p>
+        </div>
+      </div>
+
+      <div class ="cHolder" id="ethHolder">
+        <div class = "nameHolder">
+          <img class="ICO" src="img/eth.png"></img>
+          <p class = "tokenName" id="btc">ETH</p>
+          <p class = "cryptoName" id="ethereum">Ethereum</p>
+        </div>
+        <div class = "Holder">
+          <p id="eth_price">$0.00</p>
+        </div>
+        <div class = "Holder">
+          <p id="eth_change">+0.00%</p>
+        </div>
+        <div class = "Holder">
+        <p id="eth_marketcap">$0.00</p>
+        </div>
+      </div>
+
+      <div class ="cHolder" id="bnbHolder">
+        <div class = "nameHolder">
+          <img class="ICO" src="img/bnb.png"></img>
+          <p class = "tokenName" id="bnb">BNB</p>
+          <p class = "cryptoName" id="binance_coin">BNB</p>
+        </div>
+        <div class = "Holder">
+          <p id="bnb_price">$0.00</p>
+        </div>
+        <div class = "Holder">
+          <p id="bnb_change">+0.00%</p>
+        </div>
+        <div class = "Holder">
+        <p id="bnb_marketcap">$0.00</p>
+        </div>
+      </div>
+
+      </div> <!-- LEFT -->
+
+      <div class="right">
+
+      </div> <!-- RIGHT -->
+
+
+      
+
+    </div> <!-- MIDLER -->
+
+  </div> <!-- MAIN -->
+
+</div> <!-- CONTAINER -->
+
+<script src="scripts_dashboard.js" type ="module"></script>
+
+
+</body>
+
+</html>
