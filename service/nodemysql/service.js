@@ -7,7 +7,7 @@ const cors = require("cors");
 const app = express();
 
 var ACTIVE_SESSION = false;
-var ACTIVE_USER = "";
+var ACTIVE_USER = null;
 
 app.use(
   cors() //{
@@ -96,6 +96,18 @@ app.post("/checkSession", (req, res) => {
     } else {
       res.send({ message: "No active session" });
     }
+
+});
+
+app.post("/signout", (req, res) => {
+
+  if (ACTIVE_SESSION === true) {
+    ACTIVE_SESSION = false;
+    ACTIVE_USER = null;
+    res.send({userSignedOutSuccesfully: true});
+  } else {
+    res.send({userSignedOutSuccesfully: false});
+  }
 
 });
 

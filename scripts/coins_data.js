@@ -159,4 +159,5 @@ async function getapi() {
 }
 
 getapi();
-export {ethData, btcData, usdtData, bnbData, busdData, xrpData, adaData, dogeData, maticData, dotData, ltcData, solData, shibData};
+let coinsData = {ethData, btcData, usdtData, bnbData, busdData, xrpData, adaData, dogeData, maticData, dotData, ltcData, solData, shibData};
+export {coinsData};

@@ -51,6 +51,6 @@ const login = () => {
         console.log("SHOULD CONNECT NOW")
         msg.innerHTML = "";
     }
-});
+    });
 
 }

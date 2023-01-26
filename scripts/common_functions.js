@@ -7,3 +7,14 @@ export function createHtmlElement(htmlStr) {
     }
     return frag;
 }
+
+export function signOut(){
+
+    axios.post("http://localhost:3000/signout", {
+    }).then((response) => {
+
+    if(response.data == true){
+        location.href='index.html';
+    }
+    });
+}

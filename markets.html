@@ -10,8 +10,8 @@
   <meta name ="description" content="Wszystkie twoje monety w jednym miejscu">
   <meta name="author" content="p.m">
 
-  <link href="style_markets.css" rel="stylesheet" type="text/css">
-  <link href="common.css" rel="stylesheet" type="text/css">
+  <link href="styles/style_markets.css" rel="stylesheet" type="text/css">
+  <link href="styles/common.css" rel="stylesheet" type="text/css">
 
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -33,7 +33,14 @@
     </div>
     <div class="rightMenu">
       <p id="actualUser" class="headerText"></p>
-      <img class="user" src="img/user.svg"></img>
+
+      <div class="dropdown">
+        <img class="user" src="img/user.svg"></img>
+        <div class="dropdown-content">
+          <a id="signOut">Sign out</a>
+        </div>
+      </div> 
+
     </div>
   </div>
 
@@ -295,7 +302,7 @@
 </div>
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="scripts_markets.js" type ="module"></script>
+<script src="scripts/scripts_markets.js" type ="module"></script>
 
 
 </body>
