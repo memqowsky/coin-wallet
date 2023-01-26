@@ -7,7 +7,7 @@
 
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta http-equiv="content-language" content="pl">
-  <meta name ="description" content="Wszystkie twoje monety w jednym miejscu">
+  <meta name ="description" content="All your coins in one place">
   <meta name="author" content="p.m">
 
   <link href="style_dashboard.css" rel="stylesheet" type="text/css">
@@ -25,15 +25,14 @@
 
     <div class="leftMenu">
       <div class="logoHolder">
-        <img class="logo handCoursor" src="img/cryptotracker-02.svg" onclick="location.href='index.html';"></img>
+        <img class="logo handCoursor" src="img/cryptotracker-02.svg" onclick="location.href='dashboard.html';"></img>
       </div>
       <p class="headerText handCoursor" onclick="location.href='markets.html';">Markets</a>
       <p class="headerText handCoursor" onclick="location.href='dashboard.html';">Dashboard</p>
       <p class="headerText handCoursor" onclick="location.href='wallets.html';">Wallets</p>
-      <p class="headerText handCoursor">Portfolio</p>
     </div>
     <div class="rightMenu">
-      <p class="headerText">sample.user@email.com</p>
+      <p id="actualUser" class="headerText"></p>
       <img class="user" src="img/user.svg"></img>
     </div>
   </div>
@@ -45,6 +44,8 @@
         <form action="...">
             <input type="text" name="public_address" id="public_address">
             <button type="button" id="find">Find</button>
+            <button type="button" id="login">Login</button>
+            <button type="button" id="get">Get</button>
         </form>
 
       
@@ -55,7 +56,8 @@
 
 </div>
 
-<script src="scripts_dashboard.js" type ="module"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="scripts_wallets.js" type ="module"></script>
 
 
 </body>

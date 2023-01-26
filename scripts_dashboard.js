@@ -1,3 +1,8 @@
+import { createHtmlElement } from "./common_functions.js";
+
+var fragment = createHtmlElement('<button type="button" id="signIn">Sign in</button>');
+document.getElementById("rightMenu").insertBefore(fragment, null);
+
 /* Some tabs are available only for logged users, so we need
    to check, if session is active, i mean if user us logged in.
    Session become active when user logs in */
@@ -17,6 +22,3 @@
     }
     });
 });
-
-import {ethData, btcData, usdtData, bnbData, busdData, xrpData, adaData, dogeData, maticData, dotData, ltcData, solData, shibData} from './coins_data.js';
-console.log(ethData);

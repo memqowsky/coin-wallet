@@ -1,0 +1,124 @@
+html, body {
+	height: 100%;
+	margin: 0px;
+}
+
+body{
+	font-family: "Poppins", sans-serif;
+}
+.container {
+	height: 100%;
+    background: rgb(0,17,55);
+	background: linear-gradient(146deg, rgba(0,17,55,1) 13%, rgba(0,7,27,1) 100%);
+}
+
+.holder {
+	width: 420px;
+	height: 600px;
+	background: rgb(255,255,255);
+	background: linear-gradient(162deg, rgba(255,255,255,0.039653361344537785) 0%, rgba(255,255,255,0.09287464985994398) 100%);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+    border: 1.5px solid;
+    border-image: linear-gradient(-120deg, #F740CE, #2CABE4   ) 1;
+}
+
+img {
+	display: flex;
+	margin: 4% auto;
+    height: 3rem;
+    margin-top: 3.5rem;
+}
+
+
+p{
+	font-size: 18pt;
+	font-family: Poppins;
+	font-weight: 800;
+	margin-left: 13%;
+	margin-top: 2%;
+    color: white;	
+}
+
+label{
+	margin-left: 13%;
+	font-size: 9pt;
+	color: white;
+}
+
+input[type=text], input[type=password] {
+	display: flex;
+ 	margin: 2px auto -15px auto;
+	width: 70%;
+	height: 38px;
+	border-radius: 5px;
+	border: 1px solid #C4C4C4;
+	padding-left: 15px;
+	font-size: 11pt;
+}
+
+
+input:focus {
+	border: 1px solid #3A9CFF;
+	outline: none;
+}
+
+#privacy {
+	display: flex;
+	margin: 0;
+	margin-left: 17%;
+	height: 15px;
+	margin-top: 5px;
+}
+
+label[for=privacy]{
+	margin-left: 24%;
+	margin-top: -17px;
+	position: absolute;
+}
+
+.button {	
+	margin: 25px auto;
+	margin-left:15%;
+	width: 70%;
+	height: 42px;
+	border-radius: 7px;
+	background: rgb(44,171,228);
+    background: linear-gradient(-30deg, rgba(72, 189, 243, 0.42) 0%, rgba(255, 108, 223, 0.42) 100%);
+	border: none;
+	color: white;
+	text-align: center;
+	font-size: 14pt;
+	font-weight: 500;
+}
+
+.button:hover{
+	/* -webkit-box-shadow: 11px 10px 18px -8px rgba(43, 124, 206, 0.7);
+	-moz-box-shadow: 11px 10px 18px -8px rgba(43, 124, 206, 0.7); */
+	box-shadow: 0px 10px 18px -8px rgba(247, 64, 206, 0.3);
+}
+
+.button:active{
+	background-color: rgba(43,124,206,0.4)
+}
+
+#acc {
+	margin-top: 1.5rem;
+	margin-left: 25%;
+	font-size: 9pt;
+	font-weight: 100;
+	display: flex;
+	align-content: center;
+}
+
+#acc span{
+	color: #3A9CFF;
+}
+
+small {
+	font-size: 8pt;
+	margin-left: 16%;
+}
+

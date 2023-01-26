@@ -10,75 +10,64 @@
 	position: absolute;
 }
 
-.main {
-	height: 80%;
-	width: 80vw;
-	background: transparent;
+.handCoursor:hover {
+	cursor: pointer;
+}
+.rightMenu{
+	width: 0rem;
+	height: 100%;
 	display: flex;
-	justify-content: center;
 	align-items: center;
 }
 
-.middler {
-	height: 100%;
-	width: 80%;
+#signIn {	
+	width: 8rem;
+	height: 2.5rem;	
+	border-collapse: collapse;
 	background: transparent;
-	display: flex;
-	justify-content: flex-start;
-	flex-direction: column;
+	color: white;
+	text-align: center;
+	font-size: 10pt;
+	font-weight: 500;
+	border-radius: 0.5rem;
+	margin-right: 1rem;
+
+ 	font-family: 'Poppins';
+ 	font-size: 14px;
+ 	padding: .5rem;
+ 	color: white;
+ 	box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
+ 	border: solid 0.12rem transparent;
+ 	background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #78e4ff, #ff48fa);
+ 	background-origin: border-box;
+ 	background-clip: content-box, border-box;
+ 	box-shadow: 2px 1000px 1px #020D30 inset;
 }
 
-.cHolder{
-	height: 4.5rem;
-	width: 100%;
-	background: rgb(255,255,255);
-	background: linear-gradient(162deg, rgba(255,255,255,0.039653361344537785) 0%, rgba(255,255,255,0.09287464985994398) 100%);
-	display: flex;
-	justify-content: space-between;
-	flex-direction: flex-start;
+#signIn:hover {
+	box-shadow: 2px 1000px 1px rgba(255, 255, 255, 0.09) inset;
 }
 
-.Holder{
-	width: 20%;
-	display: flex;
-  	justify-content: center;
-  	align-items: center;
-}
+#tryForFree {	
+	width: 9rem;
+	height: 2.5rem;	
+	border-collapse: collapse;
+	background: transparent;
+	color: white;
+	text-align: center;
+	font-size: 11pt;
+	font-weight: 500;
+	border-radius: 0.5rem;
 
-.nameHolder{
-	padding-left: 5%;
-	width: 20%;
-	display: flex;
-  	justify-content: flex-start;
-  	align-items: center;
-	padding: 1rem;
-}
-
-.ICO {
-	height: 1.8rem;
-	width: 1.8rem;
-}
-
-.cryptoName{
-	padding-left: 5%;
-}
-
-.tokenName {
-	padding-left: 7%;
-	font-weight: bolder;
-}
-
-.namesHeader{
-	height: 2.5rem;
-	font-size: 9pt;
-	width: 100%;
-	background: rgb(255,255,255);
-	background: linear-gradient(162deg, rgba(255,255,255,0.09287464985994398) 0%, rgba(255,255,255,0.10653361344537785) 100%);
-	display: flex;
-	justify-content: space-between;
-	flex-direction: flex-start;
-}
-
-.handCoursor:hover {
-	cursor: pointer;
+ 	font-family: 'Poppins';
+ 	font-size: 14px;
+ 	padding: .5rem;
+	background-color: red;
+ 	color: white;
+ 	box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
+ 	border: solid 1.6px transparent;
+ 	background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #78e4ff, #ff48fa);
+ 	background-origin: border-box;
+ 	background-clip: content-box, border-box;
+ 	/* box-shadow: 2px 1000px 1px #020D30 inset; */
 }

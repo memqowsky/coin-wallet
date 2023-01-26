@@ -25,15 +25,14 @@
 
     <div class="leftMenu">
       <div class="logoHolder">
-        <img class="logo handCoursor" src="img/cryptotracker-02.svg" onclick="location.href='index.html';"></img>
+        <img class="logo handCoursor" src="img/cryptotracker-02.svg" onclick="location.href='dashboard.html';"></img>
       </div>
       <p class="headerText handCoursor" onclick="location.href='markets.html';">Markets</a>
       <p class="headerText handCoursor" onclick="location.href='dashboard.html';">Dashboard</p>
       <p class="headerText handCoursor" onclick="location.href='wallets.html';">Wallets</p>
-      <p class="headerText handCoursor">Portfolio</p>
     </div>
     <div class="rightMenu">
-      <p class="headerText">sample.user@email.com</p>
+      <p id="actualUser" class="headerText"></p>
       <img class="user" src="img/user.svg"></img>
     </div>
   </div>
@@ -54,7 +53,6 @@
     <div class="middler">
 
       <div class ="namesHeader">
-
         <div class = "nameHolder">
           <p class = "nameHolder_name">Name</p>
         </div>
@@ -67,7 +65,6 @@
         <div class = "Holder">
         <p id="nameHolder_marketcap">Market Cap</p>
         </div>
-
       </div>
 
       <div class ="cHolder" id="btcHolder">
@@ -297,6 +294,7 @@
 
 </div>
 
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="scripts_markets.js" type ="module"></script>
 
 

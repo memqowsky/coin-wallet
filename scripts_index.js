@@ -1,12 +1,8 @@
-const express = require("express");
-const app = express();
-const cors = require("cors");
+document.getElementById("signIn").addEventListener("click", check);
 
-app.use(
-    cors({
-        origin: "*",
-    })
-    )
+function check(){
+    location.href='signin.html';
+}
 
 
 
