@@ -4,8 +4,8 @@
 // document.getElementById("rightMenu").insertBefore(fragment, null);
 
 /* Some tabs are available only for logged users, so we need
-   to check, if session is active, i mean if user us logged in.
-   Session become active when user logs in */
+   to check, if session is active, i mean if user us signed in.
+   Session become active when user signs in */
    document.addEventListener("DOMContentLoaded", function(){
   
     axios.post("http://localhost:3000/checkSession", {
