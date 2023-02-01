@@ -1,4 +1,4 @@
-// import { createHtmlElement } from "./common_functions.js";
+import { createCoin } from "./common_functions.js";
 
 // var fragment = createHtmlElement('<button type="button" id="signIn">Sign in</button>');
 // document.getElementById("rightMenu").insertBefore(fragment, null);
@@ -31,4 +31,10 @@ document.getElementById("signOut").addEventListener("click", function(){
         }
     });
 
+});
+
+let coinObj = {name: "ABC"};
+
+document.getElementById("Add").addEventListener("click", function(){
+    document.getElementById("left").append(createCoin());
 });
