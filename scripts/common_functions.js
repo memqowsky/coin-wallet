@@ -1,3 +1,16 @@
+// import { coinsData } from "./coins_data.js";
+
+export class Coin{
+    constructor(name = "", shortName = "", price = "", change = "", marketCup = "", amount = 0){
+        this.name = name;
+        this.shortName = shortName;
+        this.price = price;
+        this.change = change;
+        this.marketCup = marketCup;
+        this.amount = amount;
+    }
+}
+
 export function createHtmlElement(htmlStr) {
     var frag = document.createDocumentFragment(),
         temp = document.createElement('div');
@@ -8,34 +21,39 @@ export function createHtmlElement(htmlStr) {
     return frag;
 }
 
-export function createCoin(coin) {
+async function getCoin(string){
 
-    let id = coin.shortName + "Holder";
+    const URL = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${string}&tsyms=USD`;
+    const response = fetch(URL);
 
-    let htmlStr = `<div class ="cHolder" id="ethHolder">
-          <div class = "nameHolder">
-            <img class="ICO" src="img/eth.png"></img>
-            <p class = "tokenName" id="btc">ETH</p>
-            <p class = "cryptoName" id="ethereum">Ethereum</p>
-          </div>
-          <div class = "Holder">
-            <p id="eth_price">$0.00</p>
-          </div>
-          <div class = "Holder">
-            <p id="eth_change">0.00</p>
-          </div>
-          <div class = "Holder">
-          <p id="eth_marketcap">$0.00</p>
-          </div>
-          </div>`;
+    response.then((response) => response.json())
+    .then((coinData) => {   
+        console.log(coinData);
 
-    var frag = document.createDocumentFragment(),
-        temp = document.createElement('div');
-    temp.innerHTML = htmlStr;
-    while (temp.firstChild) {
-        frag.appendChild(temp.firstChild);
+        switch(string){
+            case "ETH":
+                return new Coin("Ethereum", "ETH", "coinData.DISPLAY.ETH.USD.PRICE", "coinData.DISPLAY.USDT.USD.CHANGEPCT24HOUR" + '%', "DISPLAY.USDT.USD.CIRCULATINGSUPPLYMKTCAP");
+        }
+    });
+}
+ 
+export async function loadCoinFromApi(coinName, callback){
+
+     const apiEndpoint = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${coinName}&tsyms=USD`;
+     const result = await fetch(apiEndpoint);
+     const jsonObj = await result.json();
+ 
+    callback(coinName, jsonObj);
+}
+
+export function coinNameToData(shortName){
+    switch(shortName){
+        case "eth": return coinsData.ethData;
     }
-    return frag;
+}
+
+export function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 export function signOut(){

@@ -1,4 +1,4 @@
-let ethData, btcData, usdtData, bnbData, busdData, xrpData, adaData, dogeData, maticData, dotData, ltcData, solData, shibData;
+var ethData, btcData, usdtData, bnbData, busdData, xrpData, adaData, dogeData, maticData, dotData, ltcData, solData, shibData;
 
 async function getapi() {
 
@@ -6,32 +6,32 @@ async function getapi() {
     const ethPrice = document.getElementById("eth_price");
     const ethChange = document.getElementById("eth_change");
     const ethMarketCup = document.getElementById("eth_marketcap");
-    
+
     const ETHresponse = await fetch(ETH_URL);
     ethData = await ETHresponse.json();
     ethPrice.innerHTML = ethData.DISPLAY.ETH.USD.PRICE;
     ethChange.innerHTML = ethData.DISPLAY.ETH.USD.CHANGEPCT24HOUR + '%';
     ethMarketCup.innerHTML = ethData.DISPLAY.ETH.USD.CIRCULATINGSUPPLYMKTCAP;
 
+    console.log("ZALADOWALO ETH DATA: ", ethData);
 
     const BTC_URL = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD";
     const btcPrice = document.getElementById("btc_price");
     const btcChange = document.getElementById("btc_change");
     const btcMarketCup = document.getElementById("btc_marketcap");
 
-    const BTCresponse = await fetch(BTC_URL);   
+    const BTCresponse = await fetch(BTC_URL);
     btcData = await BTCresponse.json();
     btcPrice.innerHTML = btcData.DISPLAY.BTC.USD.PRICE;
     btcChange.innerHTML = btcData.DISPLAY.BTC.USD.CHANGEPCT24HOUR + '%';
     btcMarketCup.innerHTML = btcData.DISPLAY.BTC.USD.CIRCULATINGSUPPLYMKTCAP;
-
 
     const USDT_URL = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=USDT&tsyms=USD";
     const usdtPrice = document.getElementById("usdt_price");
     const usdtChange = document.getElementById("usdt_change");
     const usdtMarketCup = document.getElementById("usdt_marketcap");
 
-    const USDTresponse = await fetch(USDT_URL);   
+    const USDTresponse = await fetch(USDT_URL);
     usdtData = await USDTresponse.json();
     usdtPrice.innerHTML = usdtData.DISPLAY.USDT.USD.PRICE;
     usdtChange.innerHTML = usdtData.DISPLAY.USDT.USD.CHANGEPCT24HOUR + '%';
@@ -159,5 +159,5 @@ async function getapi() {
 }
 
 getapi();
-let coinsData = {ethData, btcData, usdtData, bnbData, busdData, xrpData, adaData, dogeData, maticData, dotData, ltcData, solData, shibData};
-export {coinsData};
+var coinsData = {ethData, btcData, usdtData, bnbData, busdData, xrpData, adaData, dogeData, maticData, dotData, ltcData, solData, shibData};
+export {ethData};
