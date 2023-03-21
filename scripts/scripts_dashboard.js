@@ -1,14 +1,12 @@
-import { loadCoinFromApi } from "./common_functions.js";
+import { loadData } from "./common_functions.js";
 import { capitalizeFirstLetter } from "./common_functions.js";
 import { Coin } from "./common_functions.js";
-
-// var fragment = createHtmlElement('<button type="button" id="signIn">Sign in</button>');
-// document.getElementById("rightMenu").insertBefore(fragment, null);
+import { PRECISIONS } from "./common_functions.js";
 
 /* Some tabs are available only for logged users, so we need
    to check, if session is active, i mean if user us signed in.
    Session become active when user signs in */
-   document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function(){
   
     axios.post("http://localhost:3000/checkSession", {
     }).then((response) => {
@@ -22,6 +20,8 @@ import { Coin } from "./common_functions.js";
             location.href='signin.html';
         }
     });
+
+    loadData("ETH", createCoinForDashboard);
 });
 
 document.getElementById("signOut").addEventListener("click", function(){  
@@ -33,17 +33,7 @@ document.getElementById("signOut").addEventListener("click", function(){
     });
 });
 
-function createCoin(name, data){
-    switch(name){
-        case "ETH":
-            return new Coin("Ethereum", name, String(data.RAW.ETH.USD.PRICE), String(data.RAW.ETH.USD.CHANGEPCT24HOUR), String(data.RAW.ETH.USD.CIRCULATINGSUPPLYMKTCAP));
-    }
-}
-
-function createCoinForDashboard(coinName, data){
-
-    let coin = createCoin(coinName, data)
-    coin.amount = 12.9348;
+function createCoinForDashboard(coin){
 
     let htmlStr = `<div class ="cHolder" id="ethHolder">
                    <div class = "nameHolder">
@@ -58,7 +48,7 @@ function createCoinForDashboard(coinName, data){
                      <p id="${coin.shortName}_amount">${coin.amount}</p>
                    </div>
                    <div class = "Holder">
-                   <p id="${coin.shortName}_value">${coin.price * coin.amount}</p>
+                   <p id="${coin.shortName}_value">${(coin.price * coin.amount).toFixed([PRECISIONS.ETH_PRECISSION])}</p>
                    </div>
                    </div>`;
 
@@ -71,10 +61,6 @@ function createCoinForDashboard(coinName, data){
     }
     document.getElementById("left").append(frag);
 }
-
-document.getElementById("Add").addEventListener("click", function(){
-    loadCoinFromApi("ETH", createCoinForDashboard);
-});
 
 
 

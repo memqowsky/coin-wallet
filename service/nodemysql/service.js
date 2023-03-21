@@ -16,12 +16,12 @@ app.use(
 );
 
 //app.use(express());
-
 const db = mysql.createConnection({
   user: "root",
   host: "localhost",
   password: "password",
   database: "coinwallet",
+  multipleStatements: true
 });
 
 db.connect((err) => {
@@ -30,6 +30,7 @@ db.connect((err) => {
   }
   console.log("MySql Connected...");
 });
+
 
 app.use(express.json());
 
@@ -96,7 +97,6 @@ app.post("/checkSession", (req, res) => {
     } else {
       res.send({ message: "No active session" });
     }
-
 });
 
 app.post("/signout", (req, res) => {
@@ -108,7 +108,33 @@ app.post("/signout", (req, res) => {
   } else {
     res.send({userSignedOutSuccesfully: false});
   }
+});
 
+app.post("/getAdressesETH", (req, res) => {
+
+    let addresses = [];
+
+    db.query(
+      `SELECT eth_address_01 FROM users WHERE email = ?;
+       SELECT eth_address_02 FROM users WHERE email = ?;
+       SELECT eth_address_03 FROM users WHERE email = ?;
+       SELECT eth_address_04 FROM users WHERE email = ?;
+       SELECT eth_address_05 FROM users WHERE email = ?;`,
+      [ACTIVE_USER, ACTIVE_USER, ACTIVE_USER, ACTIVE_USER, ACTIVE_USER],
+      (err, result) => {
+        if (err) {
+          res.send({err: err});
+        }
+      
+        if (result.length > 0) {
+          console.log("[res]: ", result);
+          addresses.push(result);
+          res.send(addresses);
+        } else {
+          res.send({ message: "DB error" });
+        }
+      }
+    );
 });
 
 app.listen("3000", () => {

@@ -1,3 +1,7 @@
+import { generateLinkEtherscan } from "./common_functions.js";
+
+
+
 /* Some tabs are available only for logged users, so we need
    to check, if session is active, i mean if user us logged in.
    Session become active when user logs in */
@@ -30,17 +34,4 @@ async function check(){
     let response = await fetch(adressData);
     var data = await response.json();
     console.log(data);
-}
-
-/* This function generates link to send a request to API */
-function generateLinkEtherscan(publicAdress){
-
-    let firstPart = "https://api.etherscan.io/api?module=account&action=balance&address=";
-    let secondPart = "&tag=latest&apikey=";
-
-    /* Request is generating using part of first part of the link,
-    public adress, second part of the link and api key. */
-    let request = firstPart + publicAdress + secondPart + API_KEY_EHTERSCAN;
-
-    return request;
 }
