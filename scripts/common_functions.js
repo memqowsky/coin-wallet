@@ -28,27 +28,27 @@ const API_KEY_EHTERSCAN = "42UMICGJ3Q6P2AU3CQD4RMJGG985DTAP4F";
 /* This function generates link to send a request to API */
 export function generateLinkEtherscan(publicAdressessObject){
 
+    console.log("adressess: ", publicAdressessObject);
+
     let publicAdressesMerged="";
-    for(let i=0; i<publicAdressessObject.length; ++i){
-        for(let adressData in publicAdressessObject[i]) {
-            if(publicAdressessObject[i].hasOwnProperty(adressData)) {
-                for (let adress in publicAdressessObject[i][adressData]) {
-                    if (publicAdressessObject[i][adressData].hasOwnProperty(adress)) {
-                        if(publicAdressessObject[i][adressData][adress].length > 0){
-                            publicAdressesMerged = publicAdressesMerged + publicAdressessObject[i][adressData][adress] + ",";
-                        }
+    for(let adressData in publicAdressessObject) {
+        if(publicAdressessObject.hasOwnProperty(adressData)) {
+            for (let adress in publicAdressessObject[adressData]) {
+                if (publicAdressessObject[adressData].hasOwnProperty(adress)) {
+                    if(publicAdressessObject[adressData][adress].length > 0){
+                        publicAdressesMerged = publicAdressesMerged + publicAdressessObject[adressData][adress] + ",";
                     }
-                  } 
-            }
+                }
+            } 
         }
     }
 
     let publicAdressesMergedCutted = publicAdressesMerged.substring(0, publicAdressesMerged.length-1);
 
+    console.log("publicAdressesMergedCutted", publicAdressesMergedCutted);
+
     let firstPart = "https://api.etherscan.io/api?module=account&action=balancemulti&address=";
     let secondPart = "&tag=latest&apikey=";
-    /* Request is generating using part of first part of the link,
-    public adress, second part of the link and api key. */
     let request = firstPart + publicAdressesMergedCutted + secondPart + API_KEY_EHTERSCAN;
     return request;
 }
@@ -56,9 +56,10 @@ export function generateLinkEtherscan(publicAdressessObject){
 export function createCoin(name, data, amount){
     switch(name){
         case "ETH":
-            return new Coin("Ethereum", name, String(data.RAW.ETH.USD.PRICE), String(data.RAW.ETH.USD.CHANGEPCT24HOUR), String(data.RAW.ETH.USD.CIRCULATINGSUPPLYMKTCAP), (Number(amount)/1000000000000000000).toFixed([PRECISIONS.ETH_PRECISSION]));
+            return new Coin("Ethereum", name, String(data.RAW.ETH.USD.PRICE), String(data.RAW.ETH.USD.CHANGEPCT24HOUR), String(data.RAW.ETH.USD.CIRCULATINGSUPPLYMKTCAP), ((Number(amount)/1000000000)/1000000000).toFixed([PRECISIONS.ETH_PRECISSION]));
     }
 }
+
 async function loadCoinFromApi(callback_createCoinForDashboard, addresses, coinName){
 
     const cryptocompare_apiEndpoint = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${coinName}&tsyms=USD`;
@@ -73,13 +74,15 @@ async function loadCoinFromApi(callback_createCoinForDashboard, addresses, coinN
     for(let i=0; i<etherscan_result_json.result.length; ++i){
         amount += Number(etherscan_result_json.result[i].balance);
     }
-    callback_createCoinForDashboard(createCoin(coinName, cryptocompare_json, amount));
+    if(amount > 0){
+        callback_createCoinForDashboard(createCoin(coinName, cryptocompare_json, amount));
+    }
 }
 
 export async function loadData(coinName, callback_createCoinForDashboard){
     axios.post("http://localhost:3000/getAdressesETH", {
     }).then((response) => {
-        loadCoinFromApi(callback_createCoinForDashboard, response.data[0], coinName);
+        loadCoinFromApi(callback_createCoinForDashboard, response.data, coinName);
     });
 }
 
@@ -94,7 +97,6 @@ export function capitalizeFirstLetter(string) {
 }
 
 export function signOut(){
-
     axios.post("http://localhost:3000/signout",{
     }).then((response) => {
 

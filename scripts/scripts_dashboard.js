@@ -42,13 +42,13 @@ function createCoinForDashboard(coin){
                      <p class = "cryptoName" id="${coin.name}">${capitalizeFirstLetter(coin.name)}</p>
                    </div>
                    <div class = "Holder">
-                     <p id="${coin.shortName}_price">${coin.price}</p>
+                     <p id="${coin.shortName}_price">$${coin.price}</p>
                    </div>
                    <div class = "Holder">
                      <p id="${coin.shortName}_amount">${coin.amount}</p>
                    </div>
                    <div class = "Holder">
-                   <p id="${coin.shortName}_value">${(coin.price * coin.amount).toFixed([PRECISIONS.ETH_PRECISSION])}</p>
+                   <p id="${coin.shortName}_value">$${(coin.price * coin.amount).toFixed([PRECISIONS.ETH_PRECISSION])}</p>
                    </div>
                    </div>`;
 

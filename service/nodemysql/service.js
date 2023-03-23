@@ -110,31 +110,33 @@ app.post("/signout", (req, res) => {
   }
 });
 
+function callback(result, res){
+
+}
+
 app.post("/getAdressesETH", (req, res) => {
 
+    let actualUserAddress;
     let addresses = [];
 
     db.query(
-      `SELECT eth_address_01 FROM users WHERE email = ?;
-       SELECT eth_address_02 FROM users WHERE email = ?;
-       SELECT eth_address_03 FROM users WHERE email = ?;
-       SELECT eth_address_04 FROM users WHERE email = ?;
-       SELECT eth_address_05 FROM users WHERE email = ?;`,
-      [ACTIVE_USER, ACTIVE_USER, ACTIVE_USER, ACTIVE_USER, ACTIVE_USER],
+      `select address from eth_addresses where user_id = (select id from users where email = ?);`,
+      [ACTIVE_USER],
       (err, result) => {
         if (err) {
           res.send({err: err});
         }
-      
         if (result.length > 0) {
           console.log("[res]: ", result);
-          addresses.push(result);
-          res.send(addresses);
+          actualUserAddress = result;
+          res.send(result)
         } else {
           res.send({ message: "DB error" });
         }
       }
     );
+
+    
 });
 
 app.listen("3000", () => {
