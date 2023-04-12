@@ -1,0 +1,176 @@
+.container {
+	height: 100vw;
+	width: 100%;
+	background: rgb(0,17,55);
+	background: linear-gradient(146deg, rgba(0,17,55,1) 13%, rgba(0,7,27,1) 100%);
+	display: flex;
+  	justify-content: flex-start;
+  	align-items: center;
+	flex-direction: column;
+	position: absolute;
+}
+
+.main {
+	height: 80%;
+	width: 80vw;
+	background: transparent;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.middler {
+	height: 100%;
+	width: 90%;
+	background: transparent;
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: row;
+}
+
+.left {
+	height: 100%;
+	width: 60%;
+}
+
+.right {
+	height: 20rem;
+	width: 40%;
+	background: rgb(255,255,255);
+	background: linear-gradient(162deg, rgba(255,255,255,0.039653361344537785) 0%, rgba(255,255,255,0.09287464985994398) 100%);
+	margin-left: 1rem;
+	margin-top: 5.1rem;
+}
+
+.cHolder{
+	height: 4rem;
+	width: 100%;
+	background: rgb(255,255,255);
+	background: linear-gradient(162deg, rgba(255,255,255,0.039653361344537785) 0%, rgba(255,255,255,0.09287464985994398) 100%);
+	display: flex;
+	justify-content: space-between;
+	flex-direction: flex-start;
+}
+
+.Holder{
+	width: 20%;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
+
+.nameHolder{
+	padding-left: 5%;
+	width: 20%;
+	display: flex;
+  	justify-content: flex-start;
+  	align-items: center;
+	padding: 1rem;
+}
+
+.ICO {
+	height: 1.4rem;
+	width: 1.4rem;
+}
+
+.cryptoName{
+	padding-left: 5%;
+}
+
+.tokenName {
+	padding-left: 7%;
+	font-weight: bolder;
+}
+
+.namesHeader{
+	height: 2.5rem;
+	font-size: 9pt;
+	width: 100%;
+	background: rgb(255,255,255);
+	background: linear-gradient(162deg, rgba(255,255,255,0.09287464985994398) 0%, rgba(255,255,255,0.10653361344537785) 100%);
+	display: flex;
+	justify-content: space-between;
+	flex-direction: flex-start;
+}
+
+.handCoursor:hover {
+	cursor: pointer;
+}
+
+.cHeader{
+	height: 4rem;
+	font-size: 11pt;
+	width: 100%;
+	background: rgb(255,255,255);
+	background: linear-gradient(162deg, rgba(255,255,255,0.039653361344537785) 0%, rgba(255,255,255,0.09287464985994398) 100%);
+	display: flex;
+	justify-content: space-between;
+	flex-direction: flex-start;
+	cursor: pointer;
+}
+
+.cHeader:hover{
+	background: rgb(44,171,228);
+    background: linear-gradient(-30deg, rgba(72, 189, 243, 0.231) 0%, rgba(255, 108, 223, 0.198) 100%);
+}
+
+.nameHolder_name{
+	padding-left: 1rem;
+}
+
+/* ////////////////////////// */
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 6px;
+  margin-right: 3.5rem;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 14px 20px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  height: 1.2rem;
+  border-radius: 6px;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  right: 0;
+}
+
+.wallets_info {
+	margin: 2.6rem 0 0 2rem;
+}	
+
+.line {
+	height: 0.1rem;
+	width: 12rem;
+	background: rgb(44,171,228);
+    background: linear-gradient(-30deg, rgb(72, 189, 243) 0%, rgb(255, 108, 223) 100%);
+	margin-top: -0.5rem;
+	margin-bottom: 1.3rem;
+}
+
+.pair_holder {
+	display: flex;
+	flex-direction: row;
+	height: 2rem;
+}
+
+.pair_second {
+	margin-left: 0.4rem;
+	font-weight: 100;
+}

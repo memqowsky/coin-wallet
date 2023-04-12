@@ -1,7 +1,8 @@
-import { loadData } from "./common_functions.js";
 import { capitalizeFirstLetter } from "./common_functions.js";
 import { Coin } from "./common_functions.js";
 import { PRECISIONS } from "./common_functions.js";
+import { generateLinkEtherscan } from "./common_functions.js"
+import { createCoin } from "./common_functions.js";
 
 /* Some tabs are available only for logged users, so we need
    to check, if session is active, i mean if user us signed in.
@@ -21,10 +22,10 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     });
 
-    loadData("ETH", createCoinForDashboard);
+    loadDataDashboard("ETH", createCoinForDashboard);
 });
 
-document.getElementById("signOut").addEventListener("click", function(){  
+document.getElementById("signOut").addEventListener("click", function(){
     axios.post("http://localhost:3000/signOut", {
     }).then((response) => {
         if(response.data.userSignedOutSuccesfully === true){
@@ -60,6 +61,31 @@ function createCoinForDashboard(coin){
         frag.appendChild(temp.firstChild);
     }
     document.getElementById("left").append(frag);
+}
+
+async function loadCoinFromApiDashboard(callback_createCoinForDashboard, addresses, coinName){
+    const cryptocompare_apiEndpoint = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${coinName}&tsyms=USD`;
+    const cryptocompare_result = await fetch(cryptocompare_apiEndpoint);
+    const cryptocompare_json = await cryptocompare_result.json();
+
+    const etherscan_apiEndpoint = generateLinkEtherscan(addresses);
+    const etherscan_result = await fetch(etherscan_apiEndpoint);
+    const etherscan_result_json = await etherscan_result.json();
+
+    let amount = 0;
+    for(let i=0; i<etherscan_result_json.result.length; ++i){
+        amount += Number(etherscan_result_json.result[i].balance);
+    }
+    if(amount > 0){
+        callback_createCoinForDashboard(createCoin(coinName, cryptocompare_json, amount));
+    }
+}
+
+async function loadDataDashboard(coinName, callback_createCoinForDashboard){
+    axios.post("http://localhost:3000/getAdressesETH", {
+    }).then((response) => {
+        loadCoinFromApiDashboard(callback_createCoinForDashboard, response.data, coinName);
+    });
 }
 
 

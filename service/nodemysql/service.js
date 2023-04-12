@@ -135,8 +135,29 @@ app.post("/getAdressesETH", (req, res) => {
         }
       }
     );
+});
 
-    
+app.post("/getAdressesAndDateETH", (req, res) => {
+
+  let actualUserAddress;
+  let addresses = [];
+
+  db.query(
+    `select address, created_at from eth_addresses where user_id = (select id from users where email = ?);`,
+    [ACTIVE_USER],
+    (err, result) => {
+      if (err) {
+        res.send({err: err});
+      }
+      if (result.length > 0) {
+        console.log("[res]: ", result);
+        actualUserAddress = result;
+        res.send(result)
+      } else {
+        res.send({ message: "DB error" });
+      }
+    }
+  );
 });
 
 app.listen("3000", () => {

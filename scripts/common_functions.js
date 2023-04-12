@@ -50,6 +50,7 @@ export function generateLinkEtherscan(publicAdressessObject){
     let firstPart = "https://api.etherscan.io/api?module=account&action=balancemulti&address=";
     let secondPart = "&tag=latest&apikey=";
     let request = firstPart + publicAdressesMergedCutted + secondPart + API_KEY_EHTERSCAN;
+    console.log("request", request)
     return request;
 }
 
@@ -58,32 +59,6 @@ export function createCoin(name, data, amount){
         case "ETH":
             return new Coin("Ethereum", name, String(data.RAW.ETH.USD.PRICE), String(data.RAW.ETH.USD.CHANGEPCT24HOUR), String(data.RAW.ETH.USD.CIRCULATINGSUPPLYMKTCAP), ((Number(amount)/1000000000)/1000000000).toFixed([PRECISIONS.ETH_PRECISSION]));
     }
-}
-
-async function loadCoinFromApi(callback_createCoinForDashboard, addresses, coinName){
-
-    const cryptocompare_apiEndpoint = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${coinName}&tsyms=USD`;
-    const cryptocompare_result = await fetch(cryptocompare_apiEndpoint);
-    const cryptocompare_json = await cryptocompare_result.json();
-
-    const etherscan_apiEndpoint = generateLinkEtherscan(addresses);
-    const etherscan_result = await fetch(etherscan_apiEndpoint);
-    const etherscan_result_json = await etherscan_result.json();
-
-    let amount = 0;
-    for(let i=0; i<etherscan_result_json.result.length; ++i){
-        amount += Number(etherscan_result_json.result[i].balance);
-    }
-    if(amount > 0){
-        callback_createCoinForDashboard(createCoin(coinName, cryptocompare_json, amount));
-    }
-}
-
-export async function loadData(coinName, callback_createCoinForDashboard){
-    axios.post("http://localhost:3000/getAdressesETH", {
-    }).then((response) => {
-        loadCoinFromApi(callback_createCoinForDashboard, response.data, coinName);
-    });
 }
 
 export function coinNameToData(shortName){
