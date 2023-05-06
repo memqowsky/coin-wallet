@@ -1,5 +1,22 @@
 import { generateLinkEtherscan } from "./common_functions.js";
+import { Wallet } from "./common_functions.js";
+import { PRECISIONS } from "./common_functions.js";
 
+// Pobieramy element nadrzędny, który zawiera elementy cHeaders
+const left = document.querySelector('.left');
+const right = document.querySelector('.right');
+
+// Dodajemy nasłuchiwanie kliknięcia na elemencie nadrzędnym
+left.addEventListener('click', function(event) {
+    // Sprawdzamy, czy kliknięcie pochodzi z elementu cHeader
+    // const myClassElements = event.target.getElementById('nameHolder_address');
+    // console.log(myClassElements);
+      if (event.target && event.target.classList.contains('activator')) {
+      right.innerHTML = '';
+      console.log(event.target);
+    //   event.target=
+    }
+});
 /* Some tabs are available only for logged users, so we need
    to check, if session is active, i mean if user us logged in.
    Session become active when user logs in */
@@ -21,22 +38,25 @@ document.addEventListener("DOMContentLoaded", function(){
     loadDataWallets("ETH", createCoinForWallets);
 });
 
-function createCoinForWallets(){
+function createCoinForWallets(wallet){
 
-    let htmlStr = `<div class ="cHeader">
-    <div class = "nameHolder">
-      <img class="ICO" src="img/eth.png"></img>
-      <p class = "nameHolder_name">Ethereum</p>
-    </div>
-    <div class = "Holder">
-      <p id="nameHolder_amount">0x6B8A0306c60b610775550e903C0F87eFa0a89203</p>
-    </div>
-    <div class = "Holder">
-    <p id="nameHolder_value">$1592.92</p>
-    </div>
-     </div>`
+    console.log("WALLET");
+    console.log(wallet);
 
-     var frag = document.createDocumentFragment(),
+    let htmlStr = `<div class ="cHeader activator">
+                    <div class = "nameHolder activator">
+                    <img class="ICO activator" src="img/${wallet.coinShortName}.png"></img>
+                    <p class = "blockchainHolder activator">${wallet.blockchain}</p>
+                    </div>
+                    <div class = "Holder activator">
+                    <p id="nameHolder_address" class="activator">${wallet.address}</p>
+                    </div>
+                    <div class = "Holder activator">
+                    <p id="nameHolder_value" class="activator">$${Number(wallet.value).toFixed(PRECISIONS.ETH_PRECISSION)}</p>
+                    </div>
+                    </div>`
+
+    var frag = document.createDocumentFragment(),
         temp = document.createElement('div');
 
     temp.innerHTML = htmlStr;
@@ -47,26 +67,36 @@ function createCoinForWallets(){
 
 }
 
-function loadDataWallets(coinName, callback_createCoinForWallets){
+async function loadDataWallets(coinName, callback_createCoinForWallets){
     axios.post("http://localhost:3000/getAdressesAndDateETH", {
     }).then((response) => {
         loadCoinFromApiWallets(callback_createCoinForWallets, response.data, coinName);
     });
 }
 
-async function loadCoinFromApiWallets(callback_createCoinForWallets, addresses, coinName){
+function createWallet(coinName, cryptocompare_json, etherscan_result_json, addressesData, addressIndex){
+
+    let fixedAmount = ((Number(etherscan_result_json.result[addressIndex].balance)/1000000000)/1000000000).toFixed(2);
+    let value =  cryptocompare_json.RAW.ETH.USD.PRICE * fixedAmount;
+
+    return new Wallet(coinName, "Ethereum", etherscan_result_json.result[addressIndex].account, value, String(addressesData[addressIndex].created_at) );
+}
+
+async function loadCoinFromApiWallets(callback_createCoinForWallets, addressesData, coinName){
     const cryptocompare_apiEndpoint = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${coinName}&tsyms=USD`;
     const cryptocompare_result = await fetch(cryptocompare_apiEndpoint);
     const cryptocompare_json = await cryptocompare_result.json();
 
-    const etherscan_apiEndpoint = generateLinkEtherscan(addresses);
+    console.log("cryptocompare_json", cryptocompare_json);
+
+    const etherscan_apiEndpoint = generateLinkEtherscan(addressesData);
     const etherscan_result = await fetch(etherscan_apiEndpoint);
     const etherscan_result_json = await etherscan_result.json();
 
-    callback_createCoinForWallets();
+    console.log("Addresses:", addressesData);
+    console.log("etherscan_result_json", etherscan_result_json.result);
 
-    console.log(addresses)
-    console.log(cryptocompare_json);
-    console.log(etherscan_result_json);
-
+    for(let addressIndex = 0; addressIndex < addressesData.length; ++addressIndex){
+        callback_createCoinForWallets(createWallet(coinName, cryptocompare_json, etherscan_result_json, addressesData, addressIndex));
+    };
 }

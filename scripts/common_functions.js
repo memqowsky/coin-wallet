@@ -13,6 +13,16 @@ export class Coin{
     }
 }
 
+export class Wallet{
+    constructor(coinShortName = "", blockchain= "", address = "", value = "", addedDate = ""){
+        this.coinShortName = coinShortName;
+        this.blockchain = blockchain;
+        this.address = address;
+        this.value = value;
+        this.addedDate = addedDate;
+    }
+}
+
 export function createHtmlElement(htmlStr) {
     var frag = document.createDocumentFragment(),
         temp = document.createElement('div');
@@ -31,12 +41,12 @@ export function generateLinkEtherscan(publicAdressessObject){
     console.log("adressess: ", publicAdressessObject);
 
     let publicAdressesMerged="";
-    for(let adressData in publicAdressessObject) {
-        if(publicAdressessObject.hasOwnProperty(adressData)) {
-            for (let adress in publicAdressessObject[adressData]) {
-                if (publicAdressessObject[adressData].hasOwnProperty(adress)) {
-                    if(publicAdressessObject[adressData][adress].length > 0){
-                        publicAdressesMerged = publicAdressesMerged + publicAdressessObject[adressData][adress] + ",";
+    for(let addressData in publicAdressessObject) {
+        if(publicAdressessObject.hasOwnProperty(addressData)) {
+            for (let address in publicAdressessObject[addressData]) {
+                if (publicAdressessObject[addressData].hasOwnProperty(address)) {
+                    if(publicAdressessObject[addressData][address].length == 42){
+                        publicAdressesMerged = publicAdressesMerged + publicAdressessObject[addressData][address] + ",";
                     }
                 }
             } 
@@ -50,7 +60,6 @@ export function generateLinkEtherscan(publicAdressessObject){
     let firstPart = "https://api.etherscan.io/api?module=account&action=balancemulti&address=";
     let secondPart = "&tag=latest&apikey=";
     let request = firstPart + publicAdressesMergedCutted + secondPart + API_KEY_EHTERSCAN;
-    console.log("request", request)
     return request;
 }
 
