@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function(){
         console.log(response.data);
         document.getElementById("actualUser").innerHTML = response.data.ACTIVE_USER;
     }
-    else {
+    else { // sample coment
         console.log(response.data.message);
         location.href='signin.html';
     }
