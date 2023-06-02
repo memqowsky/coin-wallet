@@ -36,17 +36,14 @@ app.use(express.json());
 
 
 app.post("/register", (req, res) => {
-  const usernameREQ = req.body.username;
   const emailREQ = req.body.email;
   const passwordREQ = req.body.password;
 
-  console.log(usernameREQ);
   console.log(emailREQ);
   console.log(passwordREQ);
 
-  if (usernameREQ != "" && usernameREQ != "" && usernameREQ != "") {
+  if (emailREQ != "" && passwordREQ != "") {
     let user = {
-      username: usernameREQ,
       email: emailREQ,
       password: passwordREQ,
     };
@@ -89,6 +86,37 @@ app.post("/login", (req, res) => {
     }
   );
 });
+
+// app.post("/login", (req, res) => {
+//   const emailREQ = req.body.email;
+//   const passwordREQ = req.body.password;
+
+//   console.log("backend");
+//   console.log(emailREQ);
+//   console.log(passwordREQ);
+//   console.log("backend");
+
+//   db.query(
+//     "SELECT * FROM users WHERE email = ?",
+//     [emailREQ],
+//     (err, result) => {
+//       if (err) {
+//         res.send({ err: err });
+//       }
+//       if (result.length > 0) {
+//         res.send(result);
+//         console.log("ZALOGOWANO");
+//         ACTIVE_SESSION = true;
+//         ACTIVE_USER = emailREQ;
+//         res.send({ messageUserAlreadyRegistered: "User with that email already registered" });
+//         return;
+//       } else {
+//         console.log("Przeszło dalej");
+//         res.send({ message: "Wrong login/pass" });
+//       }
+//     }
+//   );
+// });
 
 app.post("/checkSession", (req, res) => {
 

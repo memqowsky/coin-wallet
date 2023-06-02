@@ -113,6 +113,15 @@ label[for=privacy]{
 	align-content: center;
 }
 
+#acc_sign_up{
+	margin-top: -0.7rem;
+	margin-left: 25%;
+	font-size: 9pt;
+	font-weight: 100;
+	display: flex;
+	align-content: center;
+}
+
 #acc span{
 	color: #3A9CFF;
 }

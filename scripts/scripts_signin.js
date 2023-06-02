@@ -27,8 +27,6 @@ form.addEventListener('submit', e => {
     login();
 })
 
-
-
 const login = () => {
 
     const emailValue = email.value.trim();
