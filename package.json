@@ -1,9 +1,21 @@
 {
+  "name": "chartjs-example",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "devDependencies": {
+    "parcel": "^2.6.2"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.3",
     "node": "^17.7.2",
     "nodejs": "^0.0.0",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "@cubejs-client/core": "^0.31.0",
+    "chart.js": "^4.0.0"
   }
 }

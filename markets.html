@@ -33,25 +33,12 @@
     </div>
     <div class="rightMenu">
       <p id="actualUser" class="headerText"></p>
-
       <div class="dropdown">
         <img class="user" src="img/user.svg"></img>
         <div class="dropdown-content">
           <a id="signOut">Sign out</a>
         </div>
       </div> 
-
-    </div>
-  </div>
-
-  <div class="bestCoins">
-    <div class="middler" id="bestCoinsMiddler">
-
-      <div class="bestCoin" id="highlited_coins"></div>
-      <div class="bestCoin" id="highest_growth_coins"></div>
-      <div class="bestCoin" id="lowest_growth_coins"></div>
-      <div class="bestCoin" id="top_volume_coins"></div>
-
     </div>
   </div>
 
@@ -72,6 +59,9 @@
         <div class = "Holder">
         <p id="nameHolder_marketcap">Market Cap</p>
         </div>
+        <div class = "Holder">
+          <p id="nameHolder_marketcap">Info</p>
+          </div>
       </div>
 
       <div class ="cHolder" id="btcHolder">
@@ -88,6 +78,9 @@
         </div>
         <div class = "Holder">
         <p id="btc_marketcap">$0.00</p>
+        </div>
+        <div class = "Holder">
+          <p id="nameHolder_info">Info</p>
         </div>
       </div>
 
@@ -106,6 +99,9 @@
         <div class = "Holder">
         <p id="eth_marketcap">$0.00</p>
         </div>
+        <div class = "Holder">
+          <p id="nameHolder_info">Info</p>
+        </div>
       </div>
 
       <div class ="cHolder" id="usdtHolder">
@@ -122,6 +118,9 @@
         </div>
         <div class = "Holder">
         <p id="usdt_marketcap">$0.00</p>
+        </div>
+        <div class = "Holder">
+          <p id="nameHolder_info">Info</p>
         </div>
       </div>
 
@@ -140,6 +139,9 @@
         <div class = "Holder">
         <p id="bnb_marketcap">$0.00</p>
         </div>
+        <div class = "Holder">
+          <p id="nameHolder_info">Info</p>
+        </div>
       </div>
 
       <div class ="cHolder" id="busdHolder">
@@ -157,141 +159,8 @@
         <div class = "Holder">
         <p id="busd_marketcap">$0.00</p>
         </div>
-      </div>
-
-      <div class ="cHolder" id="xrpHolder">
-        <div class = "nameHolder">
-          <img class="ICO" src="img/xrp.png"></img>
-          <p class = "tokenName" id="xrp">XRP</p>
-          <p class = "cryptoName" id="binance_coin">Ripple</p>
-        </div>
         <div class = "Holder">
-          <p id="xrp_price">$0.00</p>
-        </div>
-        <div class = "Holder">
-          <p id="xrp_change">+0.00%</p>
-        </div>
-        <div class = "Holder">
-        <p id="xrp_marketcap">$0.00</p>
-        </div>
-      </div>
-
-      <div class ="cHolder" id="adaHolder">
-        <div class = "nameHolder">
-          <img class="ICO" src="img/ada.png"></img>
-          <p class = "tokenName" id="ada">ADA</p>
-          <p class = "cryptoName" id="binance_coin">Cardano</p>
-        </div>
-        <div class = "Holder">
-          <p id="ada_price">$0.00</p>
-        </div>
-        <div class = "Holder">
-          <p id="ada_change">+0.00%</p>
-        </div>
-        <div class = "Holder">
-        <p id="ada_marketcap">$0.00</p>
-        </div>
-      </div>
-
-      <div class ="cHolder" id="dogeHolder">
-        <div class = "nameHolder">
-          <img class="ICO" src="img/doge.png"></img>
-          <p class = "tokenName" id="doge">DOGE</p>
-          <p class = "cryptoName" id="binance_coin">Dogecoin</p>
-        </div>
-        <div class = "Holder">
-          <p id="doge_price">$0.00</p>
-        </div>
-        <div class = "Holder">
-          <p id="doge_change">+0.00%</p>
-        </div>
-        <div class = "Holder">
-        <p id="doge_marketcap">$0.00</p>
-        </div>
-      </div>
-
-      <div class ="cHolder" id="maticHolder">
-        <div class = "nameHolder">
-          <img class="ICO" src="img/matic.png"></img>
-          <p class = "tokenName" id="matic">MATIC</p>
-          <p class = "cryptoName" id="binance_coin">Polygon</p>
-        </div>
-        <div class = "Holder">
-          <p id="matic_price">$0.00</p>
-        </div>
-        <div class = "Holder">
-          <p id="matic_change">+0.00%</p>
-        </div>
-        <div class = "Holder">
-        <p id="matic_marketcap">$0.00</p>
-        </div>
-      </div>
-
-      <div class ="cHolder" id="dotHolder">
-        <div class = "nameHolder">
-          <img class="ICO" src="img/dot.png"></img>
-          <p class = "tokenName" id="dot">DOT</p>
-          <p class = "cryptoName" id="binance_coin">Polkadot</p>
-        </div>
-        <div class = "Holder">
-          <p id="dot_price">$0.00</p>
-        </div>
-        <div class = "Holder">
-          <p id="dot_change">+0.00%</p>
-        </div>
-        <div class = "Holder">
-        <p id="dot_marketcap">$0.00</p>
-        </div>
-      </div>
-
-      <div class ="cHolder" id="ltcHolder">
-        <div class = "nameHolder">
-          <img class="ICO" src="img/ltc.png"></img>
-          <p class = "tokenName" id="ltc">LTC</p>
-          <p class = "cryptoName" id="binance_coin">Litecoin</p>
-        </div>
-        <div class = "Holder">
-          <p id="ltc_price">$0.00</p>
-        </div>
-        <div class = "Holder">
-          <p id="ltc_change">+0.00%</p>
-        </div>
-        <div class = "Holder">
-        <p id="ltc_marketcap">$0.00</p>
-        </div>
-      </div>
-
-      <div class ="cHolder" id="solHolder">
-        <div class = "nameHolder">
-          <img class="ICO" src="img/sol.png"></img>
-          <p class = "tokenName" id="sol">SOL</p>
-          <p class = "cryptoName" id="binance_coin">Solana</p>
-        </div>
-        <div class = "Holder">
-          <p id="sol_price">$0.00</p>
-        </div>
-        <div class = "Holder">
-          <p id="sol_change">+0.00%</p>
-        </div>
-        <div class = "Holder">
-        <p id="sol_marketcap">$0.00</p>
-        </div>
-      </div>
-
-      <div class ="cHolder" id="shibHolder">
-        <div class = "nameHolder">
-          <img class="ICO" src="img/shib.png"></img>
-          <p class = "tokenName" id="shib">SHIB</p>
-          <p class = "cryptoName" id="binance_coin">Shiba</p>
-        </div>
-        <div class = "Holder">
-          <p id="shib_price">$0.00</p>
-        </div>
-        <div class = "Holder">
-          <p id="shib_change">+0.00%</p>
-        </div>
-        <div class = "Holder">
-        <p id="shib_marketcap">$0.00</p>
+          <p id="nameHolder_info">Info</p>
         </div>
       </div>
 

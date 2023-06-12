@@ -79,7 +79,7 @@ label[for=privacy]{
 	position: absolute;
 }
 
-.button {	
+.button {
 	margin: 25px auto;
 	margin-left:15%;
 	width: 70%;
@@ -92,6 +92,7 @@ label[for=privacy]{
 	text-align: center;
 	font-size: 14pt;
 	font-weight: 500;
+	margin-bottom: 0;
 }
 
 .button:hover{

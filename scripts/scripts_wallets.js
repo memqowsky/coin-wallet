@@ -6,20 +6,6 @@ import { PRECISIONS } from "./common_functions.js";
 const left = document.querySelector('.left');
 const right = document.querySelector('.right');
 
-// Dodajemy nasłuchiwanie kliknięcia na elemencie nadrzędnym
-left.addEventListener('click', function(event) {
-    // Sprawdzamy, czy kliknięcie pochodzi z elementu cHeader
-    // const myClassElements = event.target.getElementById('nameHolder_address');
-    // console.log(myClassElements);
-      if (event.target && event.target.classList.contains('activator')) {
-      right.innerHTML = '';
-      console.log(event.target);
-    //   event.target=
-    }
-});
-/* Some tabs are available only for logged users, so we need
-   to check, if session is active, i mean if user us logged in.
-   Session become active when user logs in */
 document.addEventListener("DOMContentLoaded", function(){
   
     axios.post("http://localhost:3000/checkSession", {
@@ -30,12 +16,26 @@ document.addEventListener("DOMContentLoaded", function(){
         console.log(response.data);
         document.getElementById("actualUser").innerHTML = response.data.ACTIVE_USER;
     }
-    else { // sample coment
+    else {
         console.log(response.data.message);
         location.href='signin.html';
     }
     });
     loadDataWallets("ETH", createCoinForWallets);
+});
+
+document.getElementById("signOut").addEventListener("click", function(){
+    axios.post("http://localhost:3000/signOut", {
+    }).then((response) => {
+        if(response.data.userSignedOutSuccesfully === true){
+            location.href='signin.html';
+        }
+    });
+});
+
+document.getElementById("add").addEventListener("click", function(){
+    window.location.href = "add.html";
+    console.log("add");
 });
 
 function createCoinForWallets(wallet){

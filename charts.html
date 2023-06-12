@@ -7,10 +7,10 @@
 
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta http-equiv="content-language" content="pl">
-  <meta name ="description" content="All your coins in one place">
+  <meta name ="description" content="Wszystkie twoje monety w jednym miejscu">
   <meta name="author" content="p.m">
 
-  <link href="styles/style_wallets.css" rel="stylesheet" type="text/css">
+  <link href="styles/style_dashboard.css" rel="stylesheet" type="text/css">
   <link href="styles/common.css" rel="stylesheet" type="text/css">
 
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -31,14 +31,16 @@
       <p class="headerText handCoursor" onclick="location.href='dashboard.html';">Dashboard</p>
       <p class="headerText handCoursor" onclick="location.href='wallets.html';">Wallets</p>
     </div>
-    <div class="rightMenu">
+    <div id="rightMenu" class="rightMenu">
       <p id="actualUser" class="headerText"></p>
+
       <div class="dropdown">
         <img class="user" src="img/user.svg"></img>
         <div class="dropdown-content">
           <a id="signOut">Sign out</a>
         </div>
       </div> 
+
     </div>
   </div>
 
@@ -46,34 +48,14 @@
   <div class="main">
 
     <div class="middler">
-      <div id = "left" class="left" >
-
-        <h1>Your Wallets</h1>
-        <div class ="namesHeader">
-          <div class = "nameHolder">
-            <p class = "nameHolder_name">Crypto wallets</p>
-          </div>
-          <div class = "Holder">
-            <p id="nameHolder_amount">Address</p>
-          </div>
-          <div class = "Holder">
-          <p id="nameHolder_value">Value</p>
-          </div>
-        </div>
-      </div> <!-- LEFT -->
-      <div class="right">
-        <button class = "add" id="add"> Add </button>
-        <button class = "add" id ="remove"> Remove </button>
-          </div>
-        </div>
-      </div> <!-- RIGHT -->
+      <div style="width: 800px;"><canvas id="myChart"></canvas></div>
     </div> <!-- MIDLER -->
   </div> <!-- MAIN -->
-
-</div>
+</div> <!-- CONTAINER -->
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="scripts/scripts_wallets.js" type ="module"></script>
+<script src="scripts/scripts_charts.js" type ="module"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
 </body>
