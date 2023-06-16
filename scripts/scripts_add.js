@@ -30,8 +30,8 @@ const address = document.getElementById("address")
 
 function addWallet(){
 
-    const nameValue = "SampleName"
     const addressValue = address.value.trim();
+    const nameValue = "SampleName";
 
     if(nameValue != "" && addressValue != ""){
         msg.innerHTML = "";
@@ -46,14 +46,14 @@ function addWallet(){
             msg.style.color = "red";
             msg.innerHTML = "Can't add wallet";
         }else {
-            console.log("SHOULD ADD WALLET NOW")
-            msg.innerHTML = "";
+            msg.style.color = "green";
+            msg.innerHTML = "Added Wallet Correctly!";
             window.location.href = "wallets.html";
+            
         }
         });
 
     } else {
-        msg.innerHTML = "Can't add wallet";
         return false;
     }
 

@@ -25,8 +25,13 @@ document.addEventListener("DOMContentLoaded", function(){
     loadDataDashboard("ETH", createCoinForDashboard);
 });
 
-document.getElementById("go_back").addEventListener("click", function(){
-    window.location.href = "wallets.html";
+document.getElementById("signOut").addEventListener("click", function(){
+    axios.post("http://localhost:3000/signOut", {
+    }).then((response) => {
+        if(response.data.userSignedOutSuccesfully === true){
+            location.href='signin.html';
+        }
+    });
 });
 
 function createCoinForDashboard(coin){

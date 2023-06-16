@@ -35,7 +35,10 @@ document.getElementById("signOut").addEventListener("click", function(){
 
 document.getElementById("add").addEventListener("click", function(){
     window.location.href = "add.html";
-    console.log("add");
+});
+
+document.getElementById("remove").addEventListener("click", function(){
+    window.location.href = "remove.html";
 });
 
 function createCoinForWallets(wallet){

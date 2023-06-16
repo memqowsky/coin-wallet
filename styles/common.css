@@ -96,8 +96,14 @@ body{
 	right: 0;
   }
 
-  #myChart {
-	background-color: rgba(255,255,255,0.1)
+.chart {
+	background-color: rgba(255,255,255,0.1);
+	width: 80%;
+  }
+
+.chartHolder{
+	margin-top: 2rem;
+	width: 100%;
   }
 
   /* DROPDOWN MENU HEADER */
