@@ -13,6 +13,7 @@
 
   <link href="styles/style_signin.css" rel="stylesheet" type="text/css">
   <link href="styles/style_remove.css" rel="stylesheet" type="text/css">
+  <link href="styles/common.css" rel="stylesheet" type="text/css">
 
 
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -27,20 +28,21 @@
 
   <div class="holder_remove">
 
-    <form class="form" id="form">
+      <img src="img/cryptotracker-02.svg"></img><br>
 
-      <select>
+      <p class = "name_blockchain">Select wallet to remove</p>
+
+
+      <select id="select">
         <option>Opcja 1</option>
         <option>Opcja 2</option>
         <option>Opcja 3</option>
       </select>
 
-      <button class="button">Remove wallet</button><br>
+      <button class="button" id="remove_wallet">Remove wallet</button><br>
       <button class="button" id="go_back">Go back</button><br>
 
       <small id="msg"></nr></small><br>
-
-    </form>
 
   </div>
 

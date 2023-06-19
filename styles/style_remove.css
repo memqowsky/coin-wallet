@@ -2,7 +2,7 @@ p{
 	font-size: 12pt;
 	font-family: Poppins;
 	font-weight: 800;
-	margin-left: 13%;
+	margin-left: 15.5%;
 	margin-top: 4%;
     color: white;
 }
@@ -28,4 +28,37 @@ p{
 	transform: translate(-50%, -50%);
     border: 1.5px solid;
     border-image: linear-gradient(-120deg, #F740CE, #2CABE4) 1;
+	display: flex;
+	flex-direction: column;
+}
+
+#select{
+	margin-left:15%;
+	width: 70%;
+	height: 3rem;
+	/* styling */
+	background-color: white;
+	border: thin solid blue;
+	border-radius: 4px;
+	display: inline-block;
+	font: inherit;
+	line-height: 1.5em;
+	padding: 0.5em 3.5em 0.5em 1em;
+
+	/* reset */
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+.button{
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+#remove_wallet{
+	margin-top: 2rem;
 }

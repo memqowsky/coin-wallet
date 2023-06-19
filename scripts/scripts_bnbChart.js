@@ -1,3 +1,21 @@
+document.addEventListener("DOMContentLoaded", function(){
+  
+  axios.post("http://localhost:3000/checkSession", {
+  }).then((response) => {
+      if(response.data.ACTIVE_SESSION === true){
+          console.log("SESION EXISTS");
+          console.log(response.data);
+          document.getElementById("actualUser").innerHTML = response.data.ACTIVE_USER;
+      }
+      else {
+          console.log(response.data.message);
+          location.href='signin.html';
+      }
+  });
+
+  loadDataDashboard("ETH", createCoinForDashboard);
+});
+
 function prepareChart(timeArray, priceArray){
 
   // Get the canvas element
