@@ -71,3 +71,14 @@
  	background-clip: content-box, border-box;
  	/* box-shadow: 2px 1000px 1px #020D30 inset; */
 }
+
+#thumbnail_01 {
+	/* height: 100px; */
+	margin-top:2rem;
+	width: 80%;
+	margin-left: 10%;
+}
+
+.middler {
+	margin-top: 0rem;
+}

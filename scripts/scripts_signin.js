@@ -1,3 +1,15 @@
+function createSHA256String(data) {
+    const encoder = new TextEncoder();
+    const dataBuffer = encoder.encode(data);
+  
+    return crypto.subtle.digest('SHA-256', dataBuffer)
+      .then(hashBuffer => {
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+        return hashHex;
+      });
+}
+
 /* If user is signed he shouldn't be able to see that tab */
 document.addEventListener("DOMContentLoaded", function(){
     
@@ -12,6 +24,10 @@ document.addEventListener("DOMContentLoaded", function(){
         console.log(response.data.message);
     }
 });
+});
+
+document.getElementById("logo").addEventListener("click", function(){
+    location.href='index.html';
 });
 
 const form = document.getElementById("form")
@@ -32,23 +48,23 @@ const login = () => {
     const emailValue = email.value.trim();
     const passwordValue = password.value.trim();
 
-    // console.log(emailValue);
-    // console.log(passwordValue);
-
-    axios.post("http://localhost:3000/login", {
-        email: emailValue,
-        password: passwordValue
-    }).then((response) => {
-
-    if(response.data.message){
-        console.log(response.data);
-        msg.style.color = "red";
-        msg.innerHTML = "There is no such user in the database";
-    }else {
-        location.href = "markets.html";
-        console.log("SHOULD CONNECT NOW")
-        msg.innerHTML = "";
-    }
+    createSHA256String(passwordValue)
+    .then(sha256password => {
+        console.log(sha256password);
+        axios.post("http://localhost:3000/login", {
+            email: emailValue,
+            password: sha256password
+        }).then((response) => {
+    
+        if(response.data.message){
+            console.log(response.data);
+            msg.style.color = "red";
+            msg.innerHTML = "There is no such user in the database";
+        }else {
+            location.href = "markets.html";
+            msg.innerHTML = "";
+        }
+        });
     });
 
 }

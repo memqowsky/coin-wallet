@@ -107,7 +107,7 @@
 	display: flex;
 	justify-content: space-between;
 	flex-direction: flex-start;
-	cursor: pointer;
+	/* cursor: pointer; */
 }
 
 .cHeader:hover{

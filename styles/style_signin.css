@@ -132,3 +132,7 @@ small {
 	margin-left: 16%;
 }
 
+#logo:hover {
+	cursor: pointer;
+}
+

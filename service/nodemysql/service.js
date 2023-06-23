@@ -39,10 +39,6 @@ app.use(express.json());
 app.post("/register", (req, res) => {
   const emailREQ = req.body.email;
   const passwordREQ = req.body.password;
-
-  console.log(emailREQ);
-  console.log(passwordREQ);
-
   if (emailREQ != "" && passwordREQ != "") {
     let user = {
       email: emailREQ,
@@ -51,7 +47,6 @@ app.post("/register", (req, res) => {
     let sql = "INSERT INTO users SET ?";
     let query = db.query(sql, user, (err, result) => {
       if (err) throw err;
-      console.log(result);
       res.send("User table inserted...");
     });
   } else {
@@ -62,11 +57,6 @@ app.post("/register", (req, res) => {
 app.post("/login", (req, res) => {
   const emailREQ = req.body.email;
   const passwordREQ = req.body.password;
-
-  console.log("backend");
-  console.log(emailREQ);
-  console.log(passwordREQ);
-  console.log("backend");
 
   db.query(
     "SELECT * FROM users WHERE email = ? AND password = ?",
@@ -82,9 +72,26 @@ app.post("/login", (req, res) => {
         ACTIVE_SESSION = true;
         ACTIVE_USER = emailREQ;
         ACTIVE_ID = result[0].id;
-        // callback();
       } else {
         res.send({ message: "Wrong login/pass" });
+      }
+    }
+  );
+});
+
+app.post("/removeWallet", (req, res) => {
+  const addressREQ = req.body.address;
+
+  console.log("addressREQ: ", addressREQ);
+  db.query(
+    "DELETE FROM eth_addresses WHERE address = ?",
+    [addressREQ],
+    (err, result) => {
+      if (err) {
+      } else{
+        let message = "Wallet removed";
+        res.send(message);
+        console.log("USUNIETO");
       }
     }
   );
